@@ -1,0 +1,6 @@
+Name: Create home directory on first login
+Default: yes
+Priority: 0
+Session-Type: Additional
+Session-Final:
+ required pam_mkhomedir.so umask=0077

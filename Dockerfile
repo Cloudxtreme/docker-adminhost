@@ -1,4 +1,4 @@
-# docker container running gosa
+# docker container running ssh and provides some admin tools
 
 FROM fonk/sssd
 MAINTAINER Frank Grötzner <frank@unforgotten.de>
@@ -41,6 +41,15 @@ RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.0.1/bin/li
 
 # needed to run sshd
 RUN mkdir /var/run/sshd
+
+# fix for
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=568577
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=640918
+# see: http://blog.dailystuff.nl/2012/07/create-home-directory-on-first-login/
+ADD usr/share/pam-configs /usr/share/pam-configs
+
+# doesn't work - don't know why
+RUN /usr/sbin/pam-auth-update --package
 
 # ssh supervisor conf
 ADD etc/supervisor/conf.d /etc/supervisor/conf.d
