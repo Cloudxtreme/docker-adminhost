@@ -33,7 +33,8 @@ RUN apt-get update && \
     ldapvi \
     sssd-ldap \
     less \
-    wget
+    wget \
+    bc
 
     
 # install kubernetes client
