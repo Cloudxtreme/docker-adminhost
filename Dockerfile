@@ -34,7 +34,9 @@ RUN apt-get update && \
     sssd-ldap \
     less \
     wget \
-    bc
+    bc \
+    whois \
+    dnsutils
 
     
 # install kubernetes client
