@@ -40,7 +40,10 @@ RUN apt-get update && \
 
     
 # install kubernetes client
-RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.0.1/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl
+RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.1.8/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl
+
+# fix irssi problem with wlstat (see http://wiki.some46.org/linux:irssi#utilisation)
+RUN sed -i 's/term_type/term_charset/g' /usr/share/irssi/scripts/wlstat.pl
 
 # needed to run sshd
 RUN mkdir /var/run/sshd
