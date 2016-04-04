@@ -36,7 +36,8 @@ RUN apt-get update && \
     wget \
     bc \
     whois \
-    dnsutils
+    dnsutils \
+    tinyca
 
     
 # install kubernetes client
