@@ -39,6 +39,15 @@ RUN apt-get update && \
     dnsutils \
     tinyca
 
+# install gui
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y --force-yes \
+    xrdp \
+    xterm \
+    fluxbox \
+    iceweasel \
+    openjdk-7-jre
     
 # install kubernetes client
 RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.1.8/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl
@@ -65,6 +74,7 @@ ADD etc/supervisor/conf.d /etc/supervisor/conf.d
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 22
+EXPOSE 3389
 
 VOLUME [ "/home" ]
 VOLUME [ "/etc/ssh" ]
