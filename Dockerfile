@@ -60,6 +60,9 @@ RUN sed -i 's/term_type/term_charset/g' /usr/share/irssi/scripts/wlstat.pl
 # needed to run sshd
 RUN mkdir /var/run/sshd
 
+# needed for xrdp
+RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
+
 # fix for
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=568577
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=640918
