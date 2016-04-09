@@ -37,7 +37,8 @@ RUN apt-get update && \
     bc \
     whois \
     dnsutils \
-    tinyca
+    tinyca \
+    html2text
 
 # install gui
 RUN apt-get update && \
